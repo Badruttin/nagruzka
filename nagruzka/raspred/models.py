@@ -36,3 +36,28 @@ class UchebniyPlan(models.Model):
 
     def __str__(self):
         return self.disciplina
+
+class Desciplina(models.Model):
+    disciplina_id = models.IntegerField(primary_key=True)
+    disciplina_block = models.CharField(max_length=30)
+    faculty_short_name = models.CharField(max_length=10)
+    cafedra_short_name = models.CharField(max_length=20)
+    disciplina_name = models.CharField(max_length=250)
+    disciplina_description = models.TextField()
+    import_date = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+
+
+class Faculty(models.Model):
+    faculty_id = models.IntegerField(primary_key=True)    
+    faculty_short_name = models.CharField(max_length=10)
+    faculty_full_name = models.CharField(max_length=250)
+    created = models.DateTimeField(auto_now_add=True)
+    #TODO cafedras 
+
+class Cafedra(models.Model):
+    cafedra_id = models.IntegerField(primary_key=True)
+    cafedra_short_name = models.CharField(max_length=20)
+    cafedra_full_name = models.CharField(max_length=250)
+    created = models.DateTimeField(auto_now_add=True)
+    #TODO Faculty
