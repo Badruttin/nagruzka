@@ -28,7 +28,7 @@ class UchebniyPlan(models.Model):
     import_date = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
+    class Meta: 
         ordering = ['idd']
         indexes = [
             models.Index(fields=['disciplina']),
